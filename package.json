@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
     "events": "^3.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.42",
     "@types/node": "^20.14.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
