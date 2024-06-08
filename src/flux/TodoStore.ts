@@ -9,22 +9,22 @@ export interface ITodoItem {
 }
 
 class TodoStore extends Store {
-  private todos: ITodoItem[] = [];
+  private items: ITodoItem[] = [];
 
   public update(action: IAction<ITodoItem>) {
-    if (action.type === ActionTypes.ADD_TODO) {
-      this.todos = [action.data, ...this.todos];
+    if (action.type === ActionTypes.ADD_TODO_ITEM) {
+      this.items = [action.data, ...this.items];
     }
-    if (action.type === ActionTypes.DELETE_TODO) {
-      this.todos = this.todos.filter(
+    if (action.type === ActionTypes.DELETE_TODO_ITEM) {
+      this.items = this.items.filter(
         (todoItem) => todoItem.id !== action.data.id
       );
     }
     this.emitter.emit("change");
   }
 
-  public getTodos() {
-    return this.todos;
+  public getItems() {
+    return this.items;
   }
 }
 
