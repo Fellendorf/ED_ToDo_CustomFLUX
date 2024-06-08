@@ -36,7 +36,7 @@ class TodoApiService {
 
       return {
         statusCode: 201,
-        body: this.mockedTodoData,
+        body: JSON.stringify(this.mockedTodoData),
       };
     });
   }
@@ -49,7 +49,7 @@ class TodoApiService {
 
       return {
         statusCode: 200,
-        body: this.mockedTodoData,
+        body: JSON.stringify(this.mockedTodoData),
       };
     });
   }
