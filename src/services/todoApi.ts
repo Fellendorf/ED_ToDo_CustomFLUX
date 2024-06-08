@@ -36,16 +36,20 @@ class TodoApiService {
 
       return {
         statusCode: 201,
+        body: this.mockedTodoData,
       };
     });
   }
 
   public deleteTodoItem(id: number) {
     return this.request().then(() => {
-      this.mockedTodoData.filter((todoItem) => todoItem.id !== id);
+      this.mockedTodoData = this.mockedTodoData.filter(
+        (todoItem) => todoItem.id !== id
+      );
 
       return {
         statusCode: 200,
+        body: this.mockedTodoData,
       };
     });
   }
