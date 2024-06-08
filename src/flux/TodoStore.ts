@@ -24,7 +24,7 @@ class TodoStore extends Store {
         (todoItem) => todoItem.id !== action.data.id
       );
     }
-    this.emitter.emit("change");
+    this.emitter.emit(this.changeEventName);
   }
 
   public getItems() {

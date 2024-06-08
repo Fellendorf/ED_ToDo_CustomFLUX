@@ -17,11 +17,11 @@ function TodoList() {
 
   useEffect(() => {
     // React Note: the code in the callback will be run when component is mounted:
-    todoStore.emitter.on("change", getItems);
+    todoStore.emitter.on(todoStore.changeEventName, getItems);
 
     // React Note: returned function will be called on component unmount:
     return () => {
-      todoStore.emitter.removeListener("change", getItems);
+      todoStore.emitter.removeListener(todoStore.changeEventName, getItems);
     };
     // React Note: If second parameter is passed (empty array here),
     // then main callback will be run only once when component is mounted:
@@ -32,8 +32,8 @@ function TodoList() {
       <ul>
         {items.map(({ id, title, text }) => (
           <li key={String(id)}>
-            <h3>{title || "No Title"}</h3>
-            <p>{text || "No Text"}</p>
+            <h3>{title}</h3>
+            <p>{text}</p>
             <button onClick={deleteItem(id)}>Delete</button>
           </li>
         ))}
