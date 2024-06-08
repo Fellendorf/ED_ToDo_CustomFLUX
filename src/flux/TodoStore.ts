@@ -11,6 +11,10 @@ export interface ITodoItem {
 class TodoStore extends Store {
   private items: ITodoItem[] = [];
 
+  constructor(dispatcher: typeof Dispatcher) {
+    super(dispatcher);
+  }
+
   public update(action: IAction<ITodoItem>) {
     if (action.type === ActionTypes.ADD_TODO_ITEM) {
       this.items = [action.data, ...this.items];

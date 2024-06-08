@@ -16,7 +16,7 @@ class Dispatcher {
     this.stores.push(store);
   }
 
-  public dispatch(action: IAction<any>) {
+  public dispatch<TPayload>(action: IAction<TPayload>) {
     this.stores.forEach((store) => store.update(action));
   }
 }

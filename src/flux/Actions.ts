@@ -6,9 +6,9 @@ export enum ActionTypes {
   DELETE_TODO_ITEM,
 }
 
-export interface IAction<DataType> {
+export interface IAction<TPayload> {
   type: ActionTypes;
-  data: DataType;
+  data: TPayload;
 }
 
 export const Actions = {
