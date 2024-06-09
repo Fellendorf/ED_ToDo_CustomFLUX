@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import todoStore from "./flux/TodoStore";
+import todoStore, { ITodoItem } from "./flux/TodoStore";
 import { Actions } from "./flux/Actions";
 
 function TodoList() {
-  const [items, setItems] = useState(todoStore.getItems());
+  const [items, setItems] = useState([] as ITodoItem[]);
 
-  const getItems = () => {
+  const getItemsFromStore = () => {
     setItems(todoStore.getItems());
   };
 
@@ -17,11 +17,16 @@ function TodoList() {
 
   useEffect(() => {
     // React Note: the code in the callback will be run when component is mounted:
-    todoStore.emitter.on(todoStore.changeEventName, getItems);
+    todoStore.emitter.on(todoStore.changeEventName, getItemsFromStore);
+
+    Actions.getTodos();
 
     // React Note: returned function will be called on component unmount:
     return () => {
-      todoStore.emitter.removeListener(todoStore.changeEventName, getItems);
+      todoStore.emitter.removeListener(
+        todoStore.changeEventName,
+        getItemsFromStore
+      );
     };
     // React Note: If second parameter is passed (empty array here),
     // then main callback will be run only once when component is mounted:

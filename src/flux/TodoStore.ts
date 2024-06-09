@@ -15,14 +15,19 @@ class TodoStore extends Store {
     super(dispatcher);
   }
 
-  public update(action: IAction<ITodoItem>) {
-    if (action.type === ActionTypes.ADD_TODO_ITEM) {
-      this.items = [action.data, ...this.items];
+  public update({ type, data }: IAction<ITodoItem | ITodoItem[]>) {
+    if (data) {
+      switch (type) {
+        case ActionTypes.TODO_GET_ITEMS_END:
+          this.items = data as ITodoItem[];
+      }
     }
-    if (action.type === ActionTypes.DELETE_TODO_ITEM) {
-      this.items = this.items.filter(
-        (todoItem) => todoItem.id !== action.data.id
-      );
+    if (type === ActionTypes.DELETE_TODO_ITEM) {
+      if (data) {
+        // this.items = this.items.filter((todoItem) => todoItem.id !== data.id);
+      } else {
+        // error: id is empty
+      }
     }
     this.emitter.emit(this.changeEventName);
   }

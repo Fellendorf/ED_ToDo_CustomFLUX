@@ -11,7 +11,7 @@ class TodoApiService {
     },
     { id: 0, title: "Fix bedroom door", text: "No Text" },
   ];
-  private readonly mockedRequestDelay = 2000;
+  private readonly mockedRequestDelay = 500;
 
   private request() {
     return BPromise.delay(this.mockedRequestDelay);
