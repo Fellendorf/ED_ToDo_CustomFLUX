@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import moment from "moment";
 import todoStore, { ITodoItem } from "../flux/TodoStore";
 import Actions from "../flux/Actions";
 
@@ -35,9 +36,11 @@ function TodoList() {
   return (
     <>
       <ul>
-        {items.map(({ id, title, text }) => (
+        {items.map(({ id, date, title, text }) => (
           <li key={String(id)}>
-            <h3>{title}</h3>
+            <h3>
+              {title} ({moment(date).format("YYYY-MM-DD")})
+            </h3>
             <p>{text}</p>
             <button onClick={deleteItem(id)}>Delete</button>
           </li>

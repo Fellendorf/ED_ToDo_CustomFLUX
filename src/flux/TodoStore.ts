@@ -4,6 +4,8 @@ import Store from "./Store";
 
 export interface ITodoItem {
   id: number;
+  date: number;
+  // isDone: boolean;
   title?: string;
   text?: string;
 }
@@ -15,7 +17,7 @@ class TodoStore extends Store {
     super(dispatcher);
   }
 
-  public update({ type, data }: IAction<ITodoItem | ITodoItem[]>) {
+  public update({ type, data }: IAction<number | ITodoItem | ITodoItem[]>) {
     if (data) {
       switch (type) {
         case ActionTypes.TODO_RECEIVED_ITEMS:

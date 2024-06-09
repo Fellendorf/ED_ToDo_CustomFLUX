@@ -12,6 +12,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "events": "^3.3.0",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

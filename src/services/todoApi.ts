@@ -3,13 +3,24 @@ import { ITodoItem } from "../flux/TodoStore";
 
 class TodoApiService {
   private mockedTodoData: ITodoItem[] = [
-    { id: 2, title: "Buy carrot", text: "No Text" },
+    {
+      id: 2,
+      date: new Date("2024-01-01").getTime(),
+      title: "Buy carrot",
+      text: "No Text",
+    },
     {
       id: 1,
+      date: new Date("2024-01-02").getTime(),
       title: "Buy fruits",
       text: "Mango, Oranges, Lemon, Apples, Melon",
     },
-    { id: 0, title: "Fix bedroom door", text: "No Text" },
+    {
+      id: 0,
+      date: new Date("2024-01-03").getTime(),
+      title: "Fix bedroom door",
+      text: "No Text",
+    },
   ];
   private readonly mockedRequestDelay = 500;
 

@@ -1,5 +1,5 @@
 import todoApiService from "../services/todoApi";
-import Dispatcher from "./Dispatcher";
+import dispatcher from "./Dispatcher";
 import { ITodoItem } from "./TodoStore";
 
 export enum ActionTypes {
@@ -17,20 +17,20 @@ export interface IAction<TPayload> {
 
 class Actions {
   public getTodoItems() {
-    Dispatcher.dispatch({
+    dispatcher.dispatch({
       type: ActionTypes.TODO_FETCH_ITEMS,
     });
     return todoApiService
       .getTodoItems()
       .then(({ statusCode, body }) => this.errorHandler(statusCode, body))
       .then((body) => {
-        Dispatcher.dispatch({
+        dispatcher.dispatch({
           type: ActionTypes.TODO_RECEIVED_ITEMS,
           data: JSON.parse(body),
         });
       })
       .catch((error) => {
-        Dispatcher.dispatch({
+        dispatcher.dispatch({
           type: ActionTypes.ERROR, // For "Global state store"
           data: error,
         });
@@ -38,7 +38,7 @@ class Actions {
   }
 
   public addTodoItem(todoItem: ITodoItem) {
-    Dispatcher.dispatch({
+    dispatcher.dispatch({
       type: ActionTypes.TODO_ADD_ITEM,
       data: todoItem,
     });
@@ -46,13 +46,13 @@ class Actions {
       .createTodoItem(todoItem)
       .then(({ statusCode, body }) => this.errorHandler(statusCode, body))
       .then((body) => {
-        Dispatcher.dispatch({
+        dispatcher.dispatch({
           type: ActionTypes.TODO_RECEIVED_ITEMS,
           data: JSON.parse(body),
         });
       })
       .catch((error) => {
-        Dispatcher.dispatch({
+        dispatcher.dispatch({
           type: ActionTypes.ERROR, // For "Global state store"
           data: error,
         });
@@ -60,7 +60,7 @@ class Actions {
   }
 
   public deleteTodoItem(id: number) {
-    Dispatcher.dispatch({
+    dispatcher.dispatch({
       type: ActionTypes.TODO_DELETE_ITEM,
       data: { id },
     });
@@ -68,13 +68,13 @@ class Actions {
       .deleteTodoItem(id)
       .then(({ statusCode, body }) => this.errorHandler(statusCode, body))
       .then((body) => {
-        Dispatcher.dispatch({
+        dispatcher.dispatch({
           type: ActionTypes.TODO_RECEIVED_ITEMS,
           data: JSON.parse(body),
         });
       })
       .catch((error) => {
-        Dispatcher.dispatch({
+        dispatcher.dispatch({
           type: ActionTypes.ERROR, // For "Global state store"
           data: error,
         });

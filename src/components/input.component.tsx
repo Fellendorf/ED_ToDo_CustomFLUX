@@ -4,6 +4,7 @@ function Input() {
   const onClick = () => {
     Actions.addTodoItem({
       id: new Date().getTime(),
+      date: new Date().getTime(),
       text: "More text",
       title: "More title",
     });
