@@ -1,7 +1,7 @@
 import "./App.css";
 
-import Input from "./input.component";
-import TodoList from "./todoList.component";
+import Input from "./components/input.component";
+import TodoList from "./components/todoList.component";
 
 function App() {
   return (

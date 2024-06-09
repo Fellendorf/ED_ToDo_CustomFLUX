@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import todoStore, { ITodoItem } from "./flux/TodoStore";
-import { Actions } from "./flux/Actions";
+import todoStore, { ITodoItem } from "../flux/TodoStore";
+import Actions from "../flux/Actions";
 
 function TodoList() {
   const [items, setItems] = useState([] as ITodoItem[]);
 
   const getItemsFromStore = () => {
-    setItems(todoStore.getItems());
+    setItems(todoStore.getTodoItems());
   };
 
   const deleteItem = (id: number) => {
     return () => {
-      Actions.deleteTodo(id);
+      Actions.deleteTodoItem(id);
     };
   };
 
@@ -19,7 +19,7 @@ function TodoList() {
     // React Note: the code in the callback will be run when component is mounted:
     todoStore.emitter.on(todoStore.changeEventName, getItemsFromStore);
 
-    Actions.getTodos();
+    Actions.getTodoItems();
 
     // React Note: returned function will be called on component unmount:
     return () => {

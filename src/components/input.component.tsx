@@ -1,8 +1,8 @@
-import { Actions } from "./flux/Actions";
+import Actions from "../flux/Actions";
 
 function Input() {
   const onClick = () => {
-    Actions.addTodo({
+    Actions.addTodoItem({
       id: new Date().getTime(),
       text: "More text",
       title: "More title",

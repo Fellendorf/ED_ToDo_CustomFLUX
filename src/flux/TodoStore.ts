@@ -18,11 +18,11 @@ class TodoStore extends Store {
   public update({ type, data }: IAction<ITodoItem | ITodoItem[]>) {
     if (data) {
       switch (type) {
-        case ActionTypes.TODO_GET_ITEMS_END:
+        case ActionTypes.TODO_RECEIVED_ITEMS:
           this.items = data as ITodoItem[];
       }
     }
-    if (type === ActionTypes.DELETE_TODO_ITEM) {
+    if (type === ActionTypes.TODO_DELETE_ITEM) {
       if (data) {
         // this.items = this.items.filter((todoItem) => todoItem.id !== data.id);
       } else {
@@ -32,7 +32,7 @@ class TodoStore extends Store {
     this.emitter.emit(this.changeEventName);
   }
 
-  public getItems() {
+  public getTodoItems() {
     return this.items;
   }
 }
