@@ -4,7 +4,7 @@ import Dispatcher from "./Dispatcher";
 
 export default abstract class Store {
   public emitter = new EventEmitter();
-  public readonly changeEventName = "change";
+  public abstract readonly changeEventName: string;
 
   constructor(dispatcher: typeof Dispatcher) {
     dispatcher.register(this);

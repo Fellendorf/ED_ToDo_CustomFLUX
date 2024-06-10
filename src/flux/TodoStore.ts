@@ -5,30 +5,22 @@ import Store from "./Store";
 export interface ITodoItem {
   id: number;
   date: number;
-  // isDone: boolean;
-  title?: string;
   text?: string;
 }
 
 class TodoStore extends Store {
   private items: ITodoItem[] = [];
+  public readonly changeEventName = "todoChange";
 
   constructor(dispatcher: typeof Dispatcher) {
     super(dispatcher);
   }
 
-  public update({ type, data }: IAction<number | ITodoItem | ITodoItem[]>) {
+  public update({ type, data }: IAction<ITodoItem | ITodoItem[]>) {
     if (data) {
       switch (type) {
         case ActionTypes.TODO_RECEIVED_ITEMS:
           this.items = data as ITodoItem[];
-      }
-    }
-    if (type === ActionTypes.TODO_DELETE_ITEM) {
-      if (data) {
-        // this.items = this.items.filter((todoItem) => todoItem.id !== data.id);
-      } else {
-        // error: id is empty
       }
     }
     this.emitter.emit(this.changeEventName);

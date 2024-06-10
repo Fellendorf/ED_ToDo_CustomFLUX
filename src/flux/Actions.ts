@@ -31,7 +31,7 @@ class Actions {
       })
       .catch((error) => {
         dispatcher.dispatch({
-          type: ActionTypes.ERROR, // For "Global state store"
+          type: ActionTypes.ERROR,
           data: error,
         });
       });
@@ -53,7 +53,7 @@ class Actions {
       })
       .catch((error) => {
         dispatcher.dispatch({
-          type: ActionTypes.ERROR, // For "Global state store"
+          type: ActionTypes.ERROR,
           data: error,
         });
       });
@@ -75,7 +75,7 @@ class Actions {
       })
       .catch((error) => {
         dispatcher.dispatch({
-          type: ActionTypes.ERROR, // For "Global state store"
+          type: ActionTypes.ERROR,
           data: error,
         });
       });
