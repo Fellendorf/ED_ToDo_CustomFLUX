@@ -6,7 +6,14 @@ import TodoList from "./components/todoList.component";
 function App() {
   return (
     <>
-      <h1>FLUX IMPLEMENTATION</h1>
+      <header>
+        <h1>TODO List</h1>
+        <h2>
+          <span>React +</span>
+          <span>Custom Flux Implementation</span>
+        </h2>
+      </header>
+
       <Input />
       <TodoList />
     </>

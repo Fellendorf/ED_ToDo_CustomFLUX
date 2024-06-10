@@ -1,6 +1,36 @@
 #root {
-  max-width: 1280px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: #2d4b65;
+  background-image: linear-gradient(80deg, #41698b, #2d4b65 25% 75%, #41698b);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  height: 100px;
+  padding: 0 20px;
+  border-radius: 10px;
+  text-shadow: #0d1e30 -2px 2px 2px;
+  outline: 1px solid rgb(99, 151, 185);
+  outline-offset: -5px;
+  box-shadow: -10px 10px 10px #02101f;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
