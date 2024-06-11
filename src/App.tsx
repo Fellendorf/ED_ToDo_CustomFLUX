@@ -13,9 +13,8 @@ function App() {
           <span>Custom Flux Implementation</span>
         </h2>
       </header>
-
-      <Input />
       <TodoList />
+      <Input />
     </>
   );
 }

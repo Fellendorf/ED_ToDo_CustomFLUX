@@ -1,3 +1,5 @@
+import "./todoList.component.css";
+
 import { useEffect, useState } from "react";
 import moment from "moment";
 import todoStore, { ITodoItem } from "../flux/TodoStore";
@@ -38,9 +40,11 @@ function TodoList() {
       <ul>
         {items.map(({ id, date, text }) => (
           <li key={String(id)}>
-            <p>
-              {text} <br />({moment(date).format("YYYY-MM-DD")})
-            </p>
+            <input type="checkbox" name="" id="" />
+            <div className="text-area">
+              <span>{text}</span>
+              <span>({moment(date).format("YYYY-MM-DD")})</span>
+            </div>
             <button onClick={deleteItem(id)}>Delete</button>
           </li>
         ))}
