@@ -40,12 +40,13 @@ function TodoList() {
       <ul>
         {items.map(({ id, date, text }) => (
           <li key={String(id)}>
-            <input type="checkbox" name="" id="" />
             <div className="text-area">
               <span>{text}</span>
               <span>({moment(date).format("YYYY-MM-DD")})</span>
             </div>
-            <button onClick={deleteItem(id)}>Delete</button>
+            <button onClick={deleteItem(id)} className="delete">
+              ✕
+            </button>
           </li>
         ))}
       </ul>

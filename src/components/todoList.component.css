@@ -1,7 +1,6 @@
 ul {
   box-shadow: -7px 10px 10px #02101f;
   border-radius: 10px;
-  background: #122d40;
   background-image: linear-gradient(45deg, #1b3a50, #122d40 25% 75%, #1b3a50);
 }
 
@@ -9,6 +8,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 1s;
   border-width: 0;
   border-bottom-width: 1px;
   border-style: solid;
@@ -23,31 +23,8 @@ li {
   font-weight: bold;
 }
 
-input[type="checkbox"] {
-  appearance: none;
-  margin: 0 15px 0 0;
-  border: 3px solid currentColor;
-  border-radius: 5px;
-  width: 40px;
-  height: 30px;
-  color: currentColor;
-}
-
-input[type="checkbox"]::before {
-  transform: scale(0);
-  transform-origin: bottom left;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
-  /* Windows High Contrast Mode */
-  background-color: CanvasText;
-  width: 0.65em;
-  height: 0.65em;
-  content: "";
-}
-
-input[type="checkbox"]:checked::before {
-  transform: scale(1);
+li:hover {
+  background-color: rgb(255, 255, 255, 0.05);
 }
 
 .text-area {
@@ -55,8 +32,36 @@ input[type="checkbox"]:checked::before {
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
+  margin-right: 20px;
 }
 
 span:first-child {
   font-size: 1.3em;
+}
+
+button.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.5s, color 0.5s, border 0.5s;
+  margin: 0;
+  border: 3px solid currentColor;
+  border-radius: 5px;
+  background: RGBA(0, 0, 0, 0);
+  padding: 0;
+  width: 50px;
+  min-width: 50px;
+  height: 30px;
+  color: currentColor;
+  font-size: 1.5em;
+}
+
+button.delete:hover {
+  box-shadow: 0 0 10px #a0def3;
+  border: 3px solid #a0def3;
+  color: #a0def3;
+}
+
+button.delete:focus {
+  outline: none;
 }
