@@ -12,7 +12,7 @@ function Input() {
     Actions.addTodoItem({
       id: new Date().getTime(),
       date: new Date().getTime(),
-      text: todoText,
+      text: todoText || "No Text",
     });
     setTodoText("");
   };

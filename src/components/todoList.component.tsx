@@ -36,21 +36,19 @@ function TodoList() {
   }, []);
 
   return (
-    <>
-      <ul>
-        {items.map(({ id, date, text }) => (
-          <li key={String(id)}>
-            <div className="text-area">
-              <span>{text}</span>
-              <span>({moment(date).format("YYYY-MM-DD")})</span>
-            </div>
-            <button onClick={deleteItem(id)} className="delete">
-              ✕
-            </button>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul>
+      {items.map(({ id, date, text }) => (
+        <li key={String(id)}>
+          <div className="text-area">
+            <span>{text}</span>
+            <span>({moment(date).format("YYYY-MM-DD")})</span>
+          </div>
+          <button onClick={deleteItem(id)} className="delete">
+            ✕
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }
 
