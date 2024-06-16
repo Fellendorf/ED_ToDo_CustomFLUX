@@ -1,3 +1,5 @@
+import "./input.component.css";
+
 import { useState } from "react";
 import Actions from "../flux/Actions";
 
@@ -18,12 +20,17 @@ function Input() {
   };
 
   return (
-    <>
-      <input name="todo-text" value={todoText} onChange={onTextChange} />
-      <button type="submit" id="addBtn" onClick={addTodoItem}>
-        Add Todo
+    <div className="add-todo">
+      <button type="submit" onClick={addTodoItem}>
+        ADD
       </button>
-    </>
+      <input
+        name="todo-text"
+        placeholder="type todo here"
+        value={todoText}
+        onChange={onTextChange}
+      />
+    </div>
   );
 }
 

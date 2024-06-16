@@ -1,0 +1,65 @@
+.add-todo {
+  display: flex;
+  flex-direction: column;
+  box-shadow: -7px 10px 10px #0b0f14;
+  border-radius: 0 0 10px 10px;
+  background: #2d4b65;
+  background-image: linear-gradient(80deg, #355068, #2d4b65 25% 75%, #355068);
+}
+
+.add-todo button {
+  transition: background-color 0.5s, text-shadow 0.5s, color 0.5s;
+  border-width: 0;
+  border-bottom-width: 2px;
+  border-style: solid;
+  border-radius: 0;
+  border-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0),
+      rgb(99, 151, 185),
+      rgba(0, 0, 0, 0)
+    )
+    1%;
+  background: transparent;
+  padding: 10px;
+  color: inherit;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: inherit;
+}
+
+.add-todo button:hover {
+  border-color: transparent;
+  background-color: RGBA(255, 255, 255, 0.05);
+  color: #a0def3;
+  text-shadow: 0 0 10px #a0def3;
+}
+
+.add-todo button:focus {
+  outline: none;
+}
+
+input[name="todo-text"] {
+  transition: background-color 1s;
+  margin: 15px 30px;
+  border: 2px solid #6397b9;
+  border-radius: 15px;
+  background: transparent;
+  padding: 0 10px;
+  height: 35px;
+  color: inherit;
+  font-size: 1.5em;
+}
+
+input[name="todo-text"]:focus {
+  outline: none;
+  background: RGBA(255, 255, 255, 0.1);
+}
+
+input[name="todo-text"]:hover {
+  background: RGBA(255, 255, 255, 0.1);
+}
+
+input[name="todo-text"]::placeholder {
+  color: #6397b9;
+}
