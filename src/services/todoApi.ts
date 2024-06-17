@@ -8,16 +8,16 @@ class TodoApiService {
       date: new Date("2024-01-01").getTime(),
       text: "Buy carrot",
     },
-    // {
-    //   id: 1,
-    //   date: new Date("2024-01-02").getTime(),
-    //   text: "Buy fruits",
-    // },
-    // {
-    //   id: 0,
-    //   date: new Date("2024-01-03").getTime(),
-    //   text: "Fix bedroom door",
-    // },
+    {
+      id: 1,
+      date: new Date("2024-01-02").getTime(),
+      text: "Buy fruits",
+    },
+    {
+      id: 0,
+      date: new Date("2024-01-03").getTime(),
+      text: "Fix bedroom door",
+    },
   ];
   private readonly mockedRequestDelay = 500;
 
