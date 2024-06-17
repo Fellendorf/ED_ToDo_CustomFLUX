@@ -39,8 +39,11 @@ li:hover {
   margin-right: 20px;
 }
 
-span:first-child {
-  font-size: 1.3em;
+li span:first-child {
+  font-size: 1.2em;
+}
+li span:nth-child(2) {
+  font-size: 0.8em;
 }
 
 button.delete {
@@ -68,4 +71,10 @@ button.delete:hover {
 
 button.delete:focus {
   outline: none;
+}
+
+@media (max-width: 480px) {
+  ul {
+    height: 60vh;
+  }
 }
