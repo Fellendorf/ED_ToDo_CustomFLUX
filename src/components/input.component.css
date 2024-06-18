@@ -62,4 +62,5 @@ input[name="todo-text"]:hover {
 
 input[name="todo-text"]::placeholder {
   color: #6397b9;
+  font-size: 0.9em;
 }
